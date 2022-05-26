@@ -1,0 +1,3 @@
+[submodule "App/util/Polaris"]
+	path = App/util/Polaris
+	url = https://github.com/PowerShell/Polaris.git
