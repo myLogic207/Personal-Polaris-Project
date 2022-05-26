@@ -13,6 +13,8 @@ function Get-StageDefinition {
         [String] $AuthType;
         [int] $minRunspaces;
         [int] $maxRunspaces;
+        [boolean] $Verbose;
+        [boolean] $jsonParser;
     }
 
     [StageDefinition]$stagedef = [StageDefinition]::new()
@@ -25,6 +27,9 @@ function Get-StageDefinition {
             $stagedef.AuthType = "Anonymous"
             $stagedef.minRunspaces = 1
             $stagedef.maxRunspaces = 1
+            $stagedef.Verbose = $true
+            $stagedef.jsonParser = $true
+
         }
         "Production" { 
             $stagedef.hostname = "localhost"
@@ -33,6 +38,8 @@ function Get-StageDefinition {
             $stagedef.AuthType = "Negotiate"
             $stagedef.minRunspaces = 1
             $stagedef.maxRunspaces = 5
+            $stagedef.Verbose = $false
+            $stagedef.jsonParser = $true
         }
         Default {
             throw "Invalid Stage Definition"
